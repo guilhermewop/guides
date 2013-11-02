@@ -44,7 +44,7 @@ Extensions
 * pdo
 * pdo_mysql
 
-http://www.php.net/manual/en/extensions.membership.php
+* [Core Extensions](http://www.php.net/manual/en/extensions.membership.php)
 
 
 Web Server
@@ -79,7 +79,7 @@ FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -socket /var/run/php5-fpm.socke
 a2enmod actions fastcgi alias
 ```
 
-http://httpd.apache.org/docs/2.2/mod/worker.html
+* [Apache MPM Worker](http://httpd.apache.org/docs/2.2/mod/worker.html)
 
 
 Multibyte strings
@@ -91,7 +91,7 @@ Multibyte strings
 Dependency management
 ---------------------
 
-[Composer](https://getcomposer.org)
+* [Composer](https://getcomposer.org)
 
 
 Cache
