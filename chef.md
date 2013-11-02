@@ -14,3 +14,9 @@ Installing Chef on OSX 10.9
     sed -i -e "s/10.8/10.9/" install.sh
     chmod +x install.sh
     sudo ./install.sh
+
+
+Creating a recipe
+-----------------
+
+    knife cookbook create my-recipe -o cookbooks/ -r md

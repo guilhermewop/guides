@@ -96,3 +96,10 @@ end
 Provision:
 
     vagrant provision
+
+
+Packaging a box
+---------------
+
+    cp Vagrantfile Vagrantfile.pkg
+    vagrant package --vagrantfile Vagrantfile.pkg
