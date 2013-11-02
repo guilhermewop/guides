@@ -1,5 +1,5 @@
-Software development guides
-===========================
+DevOps guides
+=============
 
 * [Chef](chef.md)
 * [LAMP](lamp.md)
