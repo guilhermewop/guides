@@ -75,7 +75,7 @@ Download cookbooks:
     mkdir -p cookbooks
     cd cookbooks
 
-    echo "apt mysql apache2 php" | xargs -n 1 knife cookbook site download
+    echo "apt mysql mysqld apache2 php" | xargs -n 1 knife cookbook site download
     echo *.tar.gz | xargs -n 1 tar xzf
 
     cd ..
@@ -87,6 +87,7 @@ config.vm.provision :chef_solo do |chef|
   chef.cookbooks_path = "cookbooks"
   chef.add_recipe "apt"
   chef.add_recipe "mysql"
+  chef.add_recipe "mysqld"
   chef.add_recipe "apache2"
   chef.add_recipe "php"
 end
