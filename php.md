@@ -159,6 +159,27 @@ Code quality
 Debug
 -----
 
+### Xdebug + QCacheGrind
+
+```
+sudo apt-get install php5-xdebug
+vim /etc/php5/conf.d/xdebug.ini
+```
+
+```ini
+zend_extension=/usr/lib/php5/20090626/xdebug.so
+xdebug.profiler_enable = 1
+xdebug.profiler_output_dir = /vagrant/xdebug/
+```
+
+```
+sudo /etc/init.d/php5-fpm restart
+```
+
+```
+brew install qcachegrind
+```
+
 * [XHProf](https://github.com/facebook/xhprof)
 * [xDebug](http://xdebug.org)
 

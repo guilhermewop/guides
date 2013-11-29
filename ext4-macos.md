@@ -1,5 +1,5 @@
-Mount Ext4 on a Mac OS
-======================
+Ext4 & Mac OS
+=============
 
 ```
 vagrant init precise32
@@ -23,7 +23,7 @@ end
 ### VMDK
 
 ```
-disk=disk9
+disk=disk2
 
 sudo chmod go+rw /dev/$disk
 VBoxManage internalcommands createrawvmdk -filename $disk.vmdk -rawdisk /dev/$disk
@@ -43,44 +43,10 @@ vagrant ssh
 ```
 sudo mkdir /mnt/sdb1
 sudo mount /dev/sdb1 /mnt/sdb1
-sudo chown -R vagrant.vagrant /mnt/sdb1
 ```
 
-### Installing Samba
+### Copying files
 
 ```
-sudo apt-get update
-sudo apt-get install samba
+scp -i ~/.vagrant.d/insecure_private_key -r ubuntu@192.168.50.4:/mnt/sdb1 sdb1
 ```
-
-```
-sudo vi /etc/samba/smb.conf
-```
-
-```
-[global]
-  workgroup = WORKGROUP
-  server string = SambaServer
-  security = share
-  name resolve order = hosts lmhosts
-
-[media]
-  path = /mnt/sdb1
-  force user = vagrant
-  force group = vagrant
-  read only = no
-  guest ok = yes
-```
-
-```
-sudo restart smbd
-sudo restart nmbd
-```
-
-
-### Connect to share
-
-Finder > Go > Connect to Server...
-
-  smb://192.168.50.4/media
-  Guest
