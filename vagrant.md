@@ -71,3 +71,29 @@ Packaging a box
 cp Vagrantfile Vagrantfile.pkg
 vagrant package --vagrantfile Vagrantfile.pkg
 ```
+
+Multi machine config
+--------------------
+
+```
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.define "webserver" do |web|
+    web.vm.box = "precise64"
+    web.vm.network :forwarded_port, guest: 80, host: 8080
+    web.vm.network :private_network, ip: "192.168.33.10"
+    web.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "512"]
+    end
+  end
+
+  config.vm.define "database" do |db|
+    db.vm.box = "precise64"
+    db.vm.network :private_network, ip: "192.168.33.20"
+    db.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "512"]
+    end
+  end
+end
+```
