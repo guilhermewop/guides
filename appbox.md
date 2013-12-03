@@ -178,6 +178,16 @@ server {
     return 404;
   }
 
+  location = /favicon.ico {
+    log_not_found off;
+    access_log off;
+  }
+
+  location = /robots.txt {
+    log_not_found off;
+    access_log off;
+  }
+
   location ~* \.(gif|jpeg|jpg|png|ico)$ {
     expires max;
   }
@@ -290,3 +300,4 @@ mysql -uroot -e "GRANT CREATE, ALTER, SELECT, INSERT, UPDATE, DELETE ON generic.
 mysql -uroot -e "GRANT CREATE, ALTER, SELECT, INSERT, UPDATE, DELETE ON zf2.* TO zf2@localhost"
 ...
 ```
+mysql -uroot -e "GRANT CREATE, ALTER, SELECT, INSERT, UPDATE, DELETE ON wordpress.* TO wordpress@localhost IDENTIFIED BY 'wordpress'"
